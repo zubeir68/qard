@@ -1,0 +1,19 @@
+{
+  "name": "qard",
+  "version": "1.0.0",
+  "description": "Digital business card",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubeir68/qard.git"
+  },
+  "author": "Zubeir Mohamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zubeir68/qard/issues"
+  },
+  "homepage": "https://github.com/zubeir68/qard#readme"
+}
