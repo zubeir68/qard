@@ -4,7 +4,9 @@
   "description": "Digital business card",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,20 @@
   "bugs": {
     "url": "https://github.com/zubeir68/qard/issues"
   },
-  "homepage": "https://github.com/zubeir68/qard#readme"
+  "homepage": "https://github.com/zubeir68/qard#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-jwt": "^5.3.1",
+    "jsonapi-serializer": "^3.6.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.2",
+    "nodemon": "^1.19.3"
+  }
 }
