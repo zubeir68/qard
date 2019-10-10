@@ -21,8 +21,8 @@ app.use((err, req, res, next) => {
 
 config.connectDb();
 
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/api', require('./routes/index'));
+app.use('/api/users', require('./routes/users'));
 
 const { PORT } = process.env;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
