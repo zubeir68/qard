@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const config = require('./config/config');
 
 const app = express();
 
@@ -18,7 +19,10 @@ app.use((err, req, res, next) => {
     }
 })
 
+config.connectDb();
+
 app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/index'));
 
 const { PORT } = process.env;
 app.listen(PORT, console.log(`Server started on port ${PORT}`))
