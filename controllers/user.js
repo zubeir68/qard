@@ -45,4 +45,20 @@ module.exports = {
             next(errorMessage);
         }
     },
+
+    async update(req, res, next) {
+        try {
+            const user = await new JSONAPIDeserializer({
+                keyForAttribute: 'camelCase',
+            }).deserialize(req.body);
+            const findUser = await User.findById(req.params.id);
+            findUser.socials = user.socials;
+            await findUser.save();
+            res.status(200).send(Serializer.serialize(findUser));
+            next();
+        } catch (error) {
+            console.error(error);
+            next(errorMessage);
+        }
+    },
 };
