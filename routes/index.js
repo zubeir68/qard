@@ -4,6 +4,6 @@ const indexController = require('../controllers/index');
 
 const router = express.Router();
 
-router.post('/api/token', asyncHandler(indexController.token));
+router.post('/token', asyncHandler(indexController.token));
 
 module.exports = router;

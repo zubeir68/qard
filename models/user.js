@@ -14,9 +14,9 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     socials: {
-        type: Map,
+        type: Array,
         required: true,
-        default: {},
+        default: [],
     },
 });
 

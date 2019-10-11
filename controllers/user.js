@@ -1,17 +1,19 @@
 /* eslint-disable no-underscore-dangle */
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 const Serializer = require('../serializers/user');
 const User = require('../models/user');
 const utils = require('../utils/utils');
+require('dotenv').config();
 
 const errorMessage = 'Server Error! We will fix this as soon as possible. If you have any questions, send an email at zubeir.mohamed@outlook.de. Thank you ';
 
 module.exports = {
     async get(req, res, next) {
         try {
-            // jwt
-            const user = await User.find({});
+            const accessToken = utils.getAccessToken(req);
+            const payload = await jwt.verify(accessToken, process.env.JWT_SECRET);
+            const user = await User.findById(payload.id);
             res.status(200).send(Serializer.serialize(user));
             next();
         } catch (error) {
@@ -32,8 +34,7 @@ module.exports = {
                     name, username, password: hash,
                 }).save();
                 newUser.save();
-                console.log(newUser);
-                res.status(204).send({});
+                res.status(200).send(Serializer.serialize(newUser));
                 next();
             } else {
                 res.status(401).send('Account exists already');
