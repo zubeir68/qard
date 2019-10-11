@@ -22,6 +22,17 @@ module.exports = {
         }
     },
 
+    async getById(req, res, next) {
+        try {
+            const user = await User.findById(req.params.id);
+            res.status(200).send(Serializer.serialize(user));
+            next();
+        } catch (error) {
+            console.error(error);
+            next(errorMessage);
+        }
+    },
+
     async add(req, res, next) {
         try {
             const user = await new JSONAPIDeserializer().deserialize(req.body);

@@ -10,6 +10,7 @@ const jwtMW = exjwt({
 });
 
 router.get('/', asyncHandler(usersController.get));
+router.get('/:id', asyncHandler(usersController.getById));
 router.post('/', asyncHandler(usersController.add));
 router.patch('/:id', jwtMW, asyncHandler(usersController.update));
 router.delete('/:id', jwtMW, asyncHandler(usersController.delete));
