@@ -17,6 +17,7 @@ module.exports = {
             res.status(200).send(Serializer.serialize(user));
             next();
         } catch (error) {
+            res.status(401).send({ message: 'Unauthorized' });
             console.error(error);
             next(errorMessage);
         }
