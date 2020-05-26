@@ -25,4 +25,4 @@ app.use('/api', require('./routes/index'));
 app.use('/api/users', require('./routes/users'));
 
 const { PORT } = process.env;
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(PORT || 3000, console.log(`Server started on port ${PORT}`));
