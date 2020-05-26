@@ -13,7 +13,7 @@ module.exports = {
         ecmaVersion: 2018
     },
     rules: {
-        indent: ["error", 4],
+        "indent": ["error", 4],
         "no-console": 0,
         "linebreak-style": 0,
     }
